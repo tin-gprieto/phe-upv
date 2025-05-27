@@ -26,10 +26,10 @@ activate_aslr:
 check_aslr:
 	cat /proc/sys/kernel/randomize_va_space
 
-check_pie:
+check:
 	checksec --file=$(EXE)
 
-dependencies:
+dep:
 	ldd $(EXE) | grep libc
 	
 read:
