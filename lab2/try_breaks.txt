@@ -1,0 +1,25 @@
+[ 1206.375065] vuln1[13039]: segfault at 0 ip 00000000f7dba220 sp 00000000fff6ab40 error 4 in libc.so.6[b3220,f7d2a000+189000] likely on CPU 3 (core 3, socket 0)
+
+[ 1322.995224] vuln1[14748]: segfault at 1bca4287 ip 00000000f7dba220 sp 00000000ffe2a270 error 6 in libc.so.6[12e220,f7caf000+189000] likely on CPU 3 (core 3, socket 0)
+
+[ 1398.820232] vuln1[15421]: segfault at 8ba975c3 ip 00000000f7dba221 sp 00000000ffd83930 error 6 in libc.so.6[6b221,f7d72000+189000] likely on CPU 3 (core 3, socket 0)
+
+[ 1630.223349] vuln1[18751]: segfault at 34 ip 00000000f7dba22b sp 00000000fff2e290 error 6 in libc.so.6[10522b,f7cd8000+189000] likely on CPU 2 (core 2, socket 0)
+
+[ 1916.589465] vuln1[22595]: segfault at 50 ip 00000000f7dba221 sp 00000000ffc15430 error 6 in libc.so.6[d7221,f7d06000+189000] likely on CPU 2 (core 2, socket 0)
+
+----
+Success
+
+[ 1673.022517] traps: vuln1[19160] trap invalid opcode ip:f7dba220 sp:ffef1e10 error:0 in libc.so.6[94220,f7d49000+189000]
+[ 1673.112594] traps: vuln1[19165] general protection fault ip:f7dba222 sp:ffcbe430 error:0 in libc.so.6[10f222,f7cce000+189000]
+
+[ 1764.199869] vuln1[20086]: segfault at 4b4e554a ip 000000004b4e554a sp 00000000ffffcf74 error 14 likely on CPU 2 (core 2, socket 0)
+[ 1764.199887] Code: Unable to access opcode bytes at 0x4b4e5520.
+[ 1783.052439] vuln1[20243]: segfault at 4b4e554a ip 000000004b4e554a sp 00000000ffffcf74 error 14 likely on CPU 1 (core 1, socket 0)
+[ 1783.052457] Code: Unable to access opcode bytes at 0x4b4e5520.
+[ 1788.496584] vuln1[20296]: segfault at 4b4e554a ip 000000004b4e554a sp 00000000ffffcf74 error 14 likely on CPU 1 (core 1, socket 0)
+[ 1788.496611] Code: Unable to access opcode bytes at 0x4b4e5520.
+
+
+
