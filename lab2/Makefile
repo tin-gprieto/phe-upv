@@ -1,7 +1,6 @@
 SHELL := /bin/bash
 CC = gcc -std=c99 -m32
 FLAGS = -fno-pie -no-pie -fno-stack-protector -g
-DNI = 2086546955761158
 EXE ?= srv
 
 
@@ -9,7 +8,7 @@ all: payload
 
 
 compile:
-	$(CC) $(FLAGS) -DDNI=$(DNI) -o $(EXE) $(EXE).c
+	$(CC) $(FLAGS) -o $(EXE) $(EXE).c
 
 addr:
 	ltrace ./$(EXE)
