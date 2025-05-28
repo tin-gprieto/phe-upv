@@ -7,15 +7,6 @@ EXE ?= srv
 all: payload
 
 
-compile:
-	$(CC) $(FLAGS) -o $(EXE) $(EXE).c
-
-addr:
-	ltrace ./$(EXE)
-
-srv_compile:
-	$(CC) $(FLAGS) -o srv srv.c
-
 deactivate_aslr:
 	echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 
@@ -24,6 +15,12 @@ activate_aslr:
 
 check_aslr:
 	cat /proc/sys/kernel/randomize_va_space
+
+compile:
+	$(CC) $(FLAGS) -o $(EXE) $(EXE).c
+
+addr:
+	ltrace ./$(EXE)
 
 check:
 	checksec --file=$(EXE)
@@ -35,8 +32,8 @@ read:
 	readelf -W -l $(EXE) | grep GNU_STACK
 
 exploit:
-	python3 exploit.py | ./vuln1
+	python3 exploit_2.py | ./vuln1
 	
 srv_exploit:
-	python3 srv_exploit.py
+	python3 srv_exploit_2.py
 
