@@ -17,22 +17,27 @@ void print_canary_32()
 	printf ("	server canary: %#lx\n", ( unsigned long ) v ) ;
 }
 
-void vulnerable ( unsigned char * msg , int len ) {
-	char buf [64];
-	memcpy(buf, msg, len);
+void print_msg( unsigned char * msg , int len, size_t i  ){
 	printf( "Recibido %d bytes : " , len ) ;
-	for ( size_t i = 0; i < len ; i ++) {
+	for (i ; i < len ; i ++) {
 		printf ( " %02x " , msg [ i ]) ;
 	}
 	printf ( "\n" ) ;
+}
+
+void vulnerable ( unsigned char * msg , int len ) {
+	char buf [64];
+	memcpy(buf, msg, len);
+	//print_msg(msg, len, 64);
 }
 
 void handle ( int client ) {
 	ssize_t r = read( client , global , sizeof(global) ) ;
 	vulnerable(global,r) ;
 	write(client,global,r) ;
-	close(client ) ;
+	close(client) ;
 	puts( " Conexión cerrada. " ) ;
+	print_msg(global, r, 64);
 }
 
 int main ( void ) {

@@ -1,8 +1,11 @@
 EXE ?= canary
 
 echosrv:
-	gcc -m32 -fstack-protector echosrv.c -o echosrv
-	
+	gcc -m32 -fstack-protector -g echosrv.c -o echosrv
+
+vuln_ssp:
+	gcc -std=c99 -m32 -fstack-protector -g vuln_ssp.c -o vuln_ssp
+
 compile_show_spp_64:
 	gcc show_canary_64.c -o show_canary_64
 
