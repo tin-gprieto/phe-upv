@@ -3,6 +3,9 @@ EXE ?= canary
 echosrv:
 	gcc -m32 -fstack-protector -g echosrv.c -o echosrv
 
+echosrv-64:
+	gcc -fstack-protector -g echosrv-64.c -o echosrv-64
+
 vuln_ssp:
 	gcc -std=c99 -m32 -fstack-protector -g vuln_ssp.c -o vuln_ssp
 
@@ -20,6 +23,12 @@ compile_no_spp:
 
 compile_spp:
 	gcc -std=c99 -m32 -fstack-protector crash.c -o canary
+
+deactivate_aslr:
+	echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
+
+activate_aslr:
+	echo 2 | sudo tee /proc/sys/kernel/randomize_va_space
 
 exec:	
 	python3 -c 'print("a" * 40)' | ./$(EXE)
