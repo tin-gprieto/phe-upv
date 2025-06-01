@@ -28,7 +28,7 @@ void print_msg( unsigned char * msg , int len, size_t i  ){
 void vulnerable ( unsigned char * msg , int len ) {
 	char buf [64];
 	memcpy(buf, msg, len);
-	//print_msg(msg, len, 64);
+	print_msg(msg, len, 64);
 }
 
 void handle ( int client ) {
